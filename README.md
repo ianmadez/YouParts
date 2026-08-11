@@ -5,6 +5,8 @@
 YouParts is an AI-powered **Streamlit** app that ingests YouTube playlists from DIY hardware build series (e.g. a force-feedback steering wheel + clutch pedal for BeamNG.drive), screens each video for relevance, and extracts a verified component manifest (BOM) with logic-gap warnings, external resource links, and regional price search.
 
 ---
+<img width="50%" height="50%" alt="image" src="https://github.com/user-attachments/assets/d987fdc4-f08c-42ee-bfdf-8621f5672099" />
+
 
 ## Summary
 
