@@ -1,3 +1,22 @@
+# Local config / secrets
+.env
 youparts_config.json
+config/youparts_config.json
+
+# Python
 __pycache__/
+*.pyc
+.venv/
+venv/
+
+# Manifests / user data
 saved_manifests/
+
+# Playwright
+.playwright/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
