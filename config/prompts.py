@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional
 
 # ==========================================
@@ -50,7 +50,12 @@ STRICT ANTI-HALLUCINATION RULES:
             "url": "https://drive.google.com/..."
         }
     ],
-    "overall_logic_gaps": []
+    "overall_logic_gaps": [
+        {
+            "description": "Bolt length missing for motor mount",
+            "approx_timestamp_seconds": 142
+        }
+    ]
 }
 """
 
@@ -112,6 +117,13 @@ class BOMItem(BaseModel):
         default=None,
         description="Populate if crucial size/spec is missing. E.g., 'Bolt length missing. Check video description link for CAD files.'",
     )
+    bought: bool = Field(
+        default=False, description="Whether the component has been acquired"
+    )
+    merged_from: List[str] = Field(
+        default_factory=list,
+        description="Audit trail of component names merged into this item",
+    )
 
 
 class ExternalResource(BaseModel):
@@ -125,6 +137,14 @@ class ExternalResource(BaseModel):
     url: str = Field(description="Full target URL extracted from description or text")
 
 
+class LogicGap(BaseModel):
+    description: str = Field(description="Details of missing specs or instructions")
+    approx_timestamp_seconds: Optional[int] = Field(
+        default=None,
+        description="Approximate timestamp in seconds where the gap occurs if stated/inferrable, else null.",
+    )
+
+
 class VideoBOMExtraction(BaseModel):
     video_id: str
     video_title: str
@@ -132,7 +152,27 @@ class VideoBOMExtraction(BaseModel):
     required_parts: List[BOMItem] = Field(default_factory=list)
     optional_parts: List[BOMItem] = Field(default_factory=list)
     external_resources: List[ExternalResource] = Field(default_factory=list)
-    overall_logic_gaps: List[str] = Field(
+    overall_logic_gaps: List[LogicGap] = Field(
         default_factory=list,
         description="List of any missing details the user must inspect manually",
     )
+
+    @field_validator("overall_logic_gaps", mode="before")
+    @classmethod
+    def coerce_logic_gaps(cls, value):
+        """Coerces legacy string gaps / raw dicts into LogicGap instances.
+
+        The LLM sometimes emits strings or bare dicts for overall_logic_gaps;
+        normalizing here keeps extraction resilient to key improvisation.
+        """
+        if value is None:
+            return []
+        coerced = []
+        for gap in value:
+            if isinstance(gap, LogicGap):
+                coerced.append(gap)
+            elif isinstance(gap, dict):
+                coerced.append(LogicGap(**gap))
+            else:
+                coerced.append(LogicGap(description=str(gap)))
+        return coerced

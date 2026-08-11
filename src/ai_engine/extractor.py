@@ -1,20 +1,19 @@
-import time
-import json
-from groq import Groq
 from config.settings import settings
-from config.prompts import EXTRACTION_SYSTEM_PROMPT, VideoBOMExtraction
+from config.prompts import EXTRACTION_SYSTEM_PROMPT, VideoBOMExtraction, LogicGap
+from src.ai_engine.groq_client import groq_client
+
+# Fresh LLM regeneration attempts when the model returns a structurally invalid
+# schema. Transport/API retries are handled inside groq_client.chat_json; this
+# loop re-calls the model so a "successful API call with garbage schema" is
+# retried rather than falling straight through to the fallback extraction.
+LOCAL_REGENERATION_ATTEMPTS = 2
 
 
 class BOMExtractorEngine:
     """Uses Groq (llama-3.3-70b-versatile) to extract hallucination-free BOMs with logic gap detection."""
 
-    def __init__(self):
-        self.client = Groq(api_key=settings.GROQ_API_KEY)
-
     def extract_bom_from_video(self, video_data: dict) -> VideoBOMExtraction:
         """Extracts structured parts list and resources from a single video dictionary."""
-        time.sleep(settings.REQUEST_DELAY_SECONDS)
-
         payload = {
             "video_id": video_data.get("video_id"),
             "video_title": video_data.get("title"),
@@ -23,21 +22,15 @@ class BOMExtractorEngine:
             "transcript_summary": video_data.get("transcript_summary", "")[:2000],
         }
 
-        retries = 0
-        while retries < settings.MAX_RETRIES:
+        last_error = None
+        for attempt in range(LOCAL_REGENERATION_ATTEMPTS):
             try:
-                response = self.client.chat.completions.create(
+                parsed_data = groq_client.chat_json(
                     model=settings.EXTRACTION_MODEL,
-                    messages=[
-                        {"role": "system", "content": EXTRACTION_SYSTEM_PROMPT},
-                        {"role": "user", "content": json.dumps(payload)},
-                    ],
-                    response_format={"type": "json_object"},
+                    system_prompt=EXTRACTION_SYSTEM_PROMPT,
+                    user_payload=payload,
                     temperature=0.0,  # Zero temperature for maximum deterministic adherence
                 )
-
-                raw_json = response.choices[0].message.content
-                parsed_data = json.loads(raw_json)
 
                 # Normalize keys and raw string variations in external_resources
                 raw_resources = parsed_data.get("external_resources", [])
@@ -136,18 +129,22 @@ class BOMExtractorEngine:
                 return VideoBOMExtraction(**parsed_data)
 
             except Exception as e:
-                retries += 1
+                last_error = e
                 print(
-                    f"[YouParts Extractor] Retry {retries}/{settings.MAX_RETRIES} due to error: {e}"
+                    f"[YouParts Extractor] Regeneration attempt {attempt + 1}/"
+                    f"{LOCAL_REGENERATION_ATTEMPTS} due to error: {e}"
                 )
-                time.sleep(settings.REQUEST_DELAY_SECONDS * 2)
 
-        # Fallback empty extraction if max retries reached
+        # Fallback: explicitly flag the failure as a logic gap (never a silent
+        # empty BOM that looks successful). Video metadata is populated so the
+        # gap is attributable to a source video in the workspace.
         return VideoBOMExtraction(
             video_id=video_data.get("video_id", ""),
             video_title=video_data.get("title", ""),
             video_url=video_data.get("url", ""),
-            overall_logic_gaps=["Failed to extract BOM after maximum retries."],
+            overall_logic_gaps=[
+                LogicGap(description=f"Failed to extract BOM: {last_error}")
+            ],
         )
 
     def aggregate_master_bom(self, extractions: list[VideoBOMExtraction]) -> dict:
@@ -178,7 +175,10 @@ class BOMExtractorEngine:
 
             if ext.overall_logic_gaps:
                 for gap in ext.overall_logic_gaps:
-                    all_logic_gaps.append(f"[{ext.video_title}]: {gap}")
+                    gap_dict = gap.model_dump()
+                    gap_dict["source_video_title"] = ext.video_title
+                    gap_dict["source_video_url"] = ext.video_url
+                    all_logic_gaps.append(gap_dict)
 
         # Deduplicate and consolidate duplicate parts across videos
         consolidated_parts = []
@@ -188,6 +188,17 @@ class BOMExtractorEngine:
             norm_name = part["part_name"].strip().lower()
             if norm_name in seen_names:
                 existing = seen_names[norm_name]
+                # Audit trail: record the duplicate's original name(s)
+                existing.setdefault("merged_from", [])
+                if part["part_name"] not in existing["merged_from"]:
+                    existing["merged_from"].append(part["part_name"])
+                for src_name in part.get("merged_from") or []:
+                    if src_name not in existing["merged_from"]:
+                        existing["merged_from"].append(src_name)
+                # Preserve purchase state across merges
+                existing["bought"] = existing.get("bought", False) or part.get(
+                    "bought", False
+                )
                 # Combine specs if the existing one is empty
                 if not existing.get("specs_and_dimensions") and part.get(
                     "specs_and_dimensions"

@@ -1,15 +1,10 @@
-import time
-import json
-from groq import Groq
 from config.settings import settings
 from config.prompts import RELEVANCE_SYSTEM_PROMPT, VideoRelevanceAnalysis
+from src.ai_engine.groq_client import groq_client
 
 
 class RelevanceFilterEngine:
     """Filters large playlists down to high-value build videos using Groq rate-spaced calls."""
-
-    def __init__(self):
-        self.client = Groq(api_key=settings.GROQ_API_KEY)
 
     def _normalize_keys(self, data: dict) -> dict:
         """Normalizes common LLM key variations to match Pydantic schema."""
@@ -62,26 +57,18 @@ class RelevanceFilterEngine:
         return data
 
     def analyze_video(self, video_data: dict) -> VideoRelevanceAnalysis:
-        time.sleep(settings.REQUEST_DELAY_SECONDS)
-
         user_payload = {
             "title": video_data.get("title"),
             "description": video_data.get("description", "")[:1500],
         }
 
         try:
-            response = self.client.chat.completions.create(
+            data = groq_client.chat_json(
                 model=settings.RELEVANCE_MODEL,
-                messages=[
-                    {"role": "system", "content": RELEVANCE_SYSTEM_PROMPT},
-                    {"role": "user", "content": json.dumps(user_payload)},
-                ],
-                response_format={"type": "json_object"},
+                system_prompt=RELEVANCE_SYSTEM_PROMPT,
+                user_payload=user_payload,
                 temperature=0.1,
             )
-
-            raw_json = response.choices[0].message.content
-            data = json.loads(raw_json)
             data = self._normalize_keys(data)
 
             data["video_id"] = video_data.get("video_id", "")

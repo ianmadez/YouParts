@@ -15,7 +15,7 @@ def render_top_navbar():
         brand_logo, brand_word = st.columns([0.22, 0.78], vertical_alignment="center")
         with brand_logo:
             if logo_path:
-                st.image(logo_path, width=150)
+                st.image(logo_path, width=54)
             else:
                 st.markdown(
                     '<span class="navbar-wordmark">YouParts</span>',
@@ -23,7 +23,7 @@ def render_top_navbar():
                 )
         with brand_word:
             st.markdown(
-                '<span class="navbar-wordmark" style="margin-left: -10px;">YouParts</span>',
+                '<span class="navbar-wordmark" style="margin-left: -8px;">YouParts</span>',
                 unsafe_allow_html=True,
             )
 

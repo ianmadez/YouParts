@@ -1,4 +1,6 @@
 import json
+from typing import Optional
+
 import pandas as pd
 import streamlit as st
 from src.scrapers import MasterPriceAggregator
@@ -23,14 +25,135 @@ def _set_price_part(part_name: str) -> None:
     st.session_state.price_results = []
 
 
+def _set_bulk_query(query: str) -> None:
+    """Callback: store a compiled bulk buy search query for copy-out."""
+    st.session_state.bulk_query = query
+
+
+def _fmt_timestamp(seconds) -> str:
+    """Formats seconds as MM:SS for deep-link labels."""
+    try:
+        total = max(0, int(seconds))
+    except (TypeError, ValueError):
+        return "00:00"
+    minutes, secs = divmod(total, 60)
+    return f"{minutes:02d}:{secs:02d}"
+
+
+def _try_numeric(qty) -> Optional[float]:
+    """Returns a float if the quantity string is a plain number, else None."""
+    if qty is None:
+        return None
+    try:
+        return float(str(qty).strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def _merge_components(parts, keep_name: str, from_name: str) -> None:
+    """Merges Item B into Item A: audit trail, bought preservation, quantity
+    handling, then removes Item B from the active manifest."""
+    master_data = st.session_state.get("master_bom", {})
+    manifest = master_data.get("parts_manifest", [])
+    keep_item = next((p for p in manifest if p["part_name"] == keep_name), None)
+    from_item = next((p for p in manifest if p["part_name"] == from_name), None)
+    if not keep_item or not from_item:
+        st.session_state.merge_feedback = "Could not locate the components to merge."
+        st.rerun()
+        return
+
+    # Audit trail: record the merged-from name(s)
+    keep_item.setdefault("merged_from", [])
+    if from_name not in keep_item["merged_from"]:
+        keep_item["merged_from"].append(from_name)
+    for src_name in from_item.get("merged_from") or []:
+        if src_name not in keep_item["merged_from"]:
+            keep_item["merged_from"].append(src_name)
+
+    # Preserve purchase state
+    keep_item["bought"] = bool(keep_item.get("bought", False)) or bool(
+        from_item.get("bought", False)
+    )
+
+    # Quantity: sum when both are plain numbers, otherwise keep primary and
+    # surface what happened (never silently drop a quantity).
+    keep_qty = keep_item.get("quantity", "1")
+    from_qty = from_item.get("quantity", "1")
+    keep_num = _try_numeric(keep_qty)
+    from_num = _try_numeric(from_qty)
+    if keep_num is not None and from_num is not None:
+        new_qty = keep_num + from_num
+        keep_item["quantity"] = (
+            str(int(new_qty)) if float(new_qty).is_integer() else str(new_qty)
+        )
+        st.session_state.merge_feedback = (
+            f"Quantity updated: {keep_item['quantity']} ({keep_qty} + {from_qty})."
+        )
+    else:
+        st.session_state.merge_feedback = (
+            f"Kept quantity '{keep_qty}' — '{from_qty}' from '{from_name}' "
+            f"recorded in merged_from."
+        )
+
+    # Remove the merged-from component from the active manifest
+    manifest[:] = [p for p in manifest if p["part_name"] != from_name]
+    master_data["parts_manifest"] = manifest
+    st.session_state.master_bom = master_data
+    st.rerun()
+
+
+def _render_merge_tool(parts) -> None:
+    """Post-hoc component merging form (manual dedupe of near-identical names)."""
+    st.divider()
+    st.markdown("#### Merge Components")
+    if len(parts) < 2:
+        st.caption("Add at least two components to merge.")
+        return
+
+    if st.session_state.get("merge_feedback"):
+        st.info(st.session_state.pop("merge_feedback"))
+
+    part_names = [p["part_name"] for p in parts]
+    keep_default = part_names[0]
+    from_default = part_names[1] if len(part_names) > 1 else part_names[0]
+
+    col_keep, col_from, col_btn = st.columns([1, 1, 1])
+    with col_keep:
+        keep_name = st.selectbox(
+            "Merge INTO (keep)", part_names, index=part_names.index(keep_default)
+        )
+    with col_from:
+        from_name = st.selectbox(
+            "Merge FROM (remove)",
+            part_names,
+            index=part_names.index(from_default),
+        )
+    with col_btn:
+        st.write("")
+        if st.button("MERGE COMPONENTS", use_container_width=True):
+            if keep_name == from_name:
+                st.warning("Choose two different components to merge.")
+            else:
+                _merge_components(parts, keep_name, from_name)
+
+
 def _render_bom(parts):
     st.markdown("#### Component Manifest")
+
+    # Purchase progress bar, bound to each item's "bought" state
     if not parts:
         st.info("No parts extracted.")
         return
 
-    if "bought_items" not in st.session_state:
-        st.session_state.bought_items = {}
+    total = len(parts)
+    bought = sum(1 for p in parts if p.get("bought", False))
+    ratio = bought / total
+    st.progress(ratio)
+    st.caption(f"{bought} / {total} Components Acquired ({int(ratio * 100)}%)")
+
+    # Copyable bulk buy query from the last category button click
+    if st.session_state.get("bulk_query"):
+        st.code(st.session_state["bulk_query"], language="text")
 
     categories = []
     for p in parts:
@@ -39,15 +162,32 @@ def _render_bom(parts):
             categories.append(cat)
 
     for cat in categories:
-        st.markdown(f"**Category: {cat}**")
         cat_parts = [p for p in parts if (p.get("category") or "General") == cat]
 
+        cat_col, bulk_col = st.columns([3, 1], vertical_alignment="center")
+        with cat_col:
+            st.markdown(f"**Category: {cat}**")
+        with bulk_col:
+            st.button(
+                "COPY BULK BUY QUERY",
+                key=f"bulk_{cat}",
+                use_container_width=True,
+                on_click=_set_bulk_query,
+                args=(", ".join(p["part_name"] for p in cat_parts),),
+            )
+
         for idx, item in enumerate(cat_parts):
-            item_key = f"{cat}_{idx}_{item['part_name']}"
-            st.checkbox(
+            item_key = f"bought_{cat}_{item['part_name']}"
+            checked = st.checkbox(
                 f"**{item['part_name']}** | Qty: {item.get('quantity', '1')} | Specs: {item.get('specs_and_dimensions') or 'N/A'}",
+                value=bool(item.get("bought", False)),
                 key=item_key,
             )
+            # Sync the widget state back into the manifest dict so "SAVE
+            # MANIFEST TO DISK" persists purchase state. Mutating the item dict
+            # (a live reference into session_state.master_bom) is safe here —
+            # callback args would be copies and are never mutated.
+            item["bought"] = bool(checked)
             if item.get("logic_gap_warning"):
                 st.markdown(
                     f"""
@@ -59,6 +199,8 @@ def _render_bom(parts):
                 )
         st.divider()
 
+    _render_merge_tool(parts)
+
 
 def _render_logic_gaps(logic_gaps):
     st.markdown("#### Hallucination-Guard Directives")
@@ -68,11 +210,44 @@ def _render_logic_gaps(logic_gaps):
     if not logic_gaps:
         st.success("No critical logic gaps detected.")
         return
+
     for gap in logic_gaps:
+        # Normalize: structured dict / LogicGap (new) vs legacy plain string
+        if isinstance(gap, dict):
+            description = str(gap.get("description") or "Unspecified logic gap")
+            timestamp = gap.get("approx_timestamp_seconds")
+            source_title = gap.get("source_video_title")
+            source_url = gap.get("source_video_url")
+        elif hasattr(gap, "model_dump"):
+            gap = gap.model_dump()
+            description = str(gap.get("description") or "Unspecified logic gap")
+            timestamp = gap.get("approx_timestamp_seconds")
+            source_title = gap.get("source_video_title")
+            source_url = gap.get("source_video_url")
+        else:
+            description = str(gap)
+            timestamp = source_title = source_url = None
+
+        # Deep-link only when we have BOTH a timestamp AND a source URL;
+        # otherwise render plain text (graceful no-link fallback for legacy data).
+        ts_link = ""
+        if timestamp is not None and source_url:
+            ts_link = (
+                f'<a class="logic-gap-link" href="{source_url}?t={int(timestamp)}" '
+                f'target="_blank" rel="noopener">View Video at '
+                f"{_fmt_timestamp(timestamp)}</a>"
+            )
+
+        source_tag = ""
+        if source_title:
+            source_tag = f'<span class="logic-gap-source">Source: {source_title}</span>'
+
         st.markdown(
             f"""
             <div class="logic-gap-card">
-                <b>FLAG:</b> {gap}
+                <b>FLAG:</b> {description}
+                {source_tag}
+                {ts_link}
             </div>
             """,
             unsafe_allow_html=True,
