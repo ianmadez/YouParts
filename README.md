@@ -1,8 +1,8 @@
 # YouParts — DIY Manifest Planner
 
-> **From Watch Later to Built.** Turn YouTube build series into a grounded, hallucination-guarded Bill of Materials.
+> **From Watch Later to Built.** Turn YouTube build series into a comprehensive Bill of Materials.
 
-YouParts is a **Streamlit** app that ingests YouTube playlists from DIY hardware build series (e.g. a force-feedback steering wheel + clutch pedal for BeamNG.drive), screens each video for relevance, and extracts a verified component manifest (BOM) — with logic-gap warnings, external resource links, and regional price search — all in an editorial red/black/cream "paper" interface.
+YouParts is an AI-powered **Streamlit** app that ingests YouTube playlists from DIY hardware build series (e.g. a force-feedback steering wheel + clutch pedal for BeamNG.drive), screens each video for relevance, and extracts a verified component manifest (BOM) with logic-gap warnings, external resource links, and regional price search.
 
 ---
 
@@ -21,10 +21,8 @@ YouParts is a **Streamlit** app that ingests YouTube playlists from DIY hardware
 * **Logic-gap detection** — flags missing information such as bolt lengths, unstated tolerances, or other requirements needed to actually reproduce a build.
 * **Regional price search** — per-store toggles with fallback search links.
 * **Optional Playwright stealth scraper template** — foundation for real listing scraping.
-* **Editorial interface** — paper-grain background with an animated WebGL paper-drift shader.
 * **Bento-card navigation** — clean navigation between workspace sections.
 * **Live pipeline progress** — tracks screening and BOM extraction as they happen.
-* **Clean top navigation and footer**.
 
 ---
 
@@ -295,7 +293,7 @@ MAX_RETRIES = 3
 
 These are particularly useful when working around Groq free-tier rate limits and cooldowns.
 
-### Scraper Toggles
+### Scraper Toggles (These are examples, tweak these)
 
 Enable or disable individual regional stores through:
 
@@ -376,11 +374,11 @@ It generally does not need to be modified unless you want to restyle the applica
 
 ---
 
-## Anti-Hallucination Philosophy
+## Anti-Hallucination
 
 YouParts is designed around a simple principle:
 
-> **If the source doesn't say it, YouParts shouldn't pretend it does.**
+> **If the source doesn't say it, YouParts shouldn't pretend it does. Otherwise a wrong source might mess up your whole project.**
 
 The extraction pipeline intentionally distinguishes between:
 
@@ -420,12 +418,6 @@ Make sure your `.gitignore` excludes:
 config/youparts_config.json
 ```
 
-The current `.gitignore` should be reviewed before pushing the repository, especially if it currently ignores `.env.example` rather than `.env`.
-
-### If a Key Was Ever Committed
-
-If a real API key has ever been pushed to Git, **rotate/revoke it immediately**. Removing it from the latest commit is not enough because it may still exist in Git history.
-
 ---
 
 ## Roadmap / Future Work
@@ -434,12 +426,12 @@ Potential areas for further development include:
 
 * Real marketplace listing scraping through Playwright.
 * More robust source verification across multiple videos.
-* Better deduplication and component normalization.
+* Better deduplication and component normalization. ✔️
 * Confidence scoring for extracted components.
 * Cross-video contradiction detection.
 * More regional marketplaces.
-* Export to CSV / JSON / shopping lists.
-* Build-stage grouping and dependency tracking.
+* Export to CSV / JSON / shopping lists.✔️
+* Build-stage grouping and dependency tracking.✔️
 
 ---
 
@@ -461,12 +453,6 @@ Potential areas for further development include:
 
 ## License
 
-Add your project's license here.
-
-For example:
-
 ```text
 MIT License
 ```
-
-if the project is intended to be released under MIT.
