@@ -11,7 +11,7 @@ YouParts is an AI-powered **Streamlit** app that ingests YouTube playlists from 
 * **Ingest** YouTube videos/playlists via `yt-dlp` (metadata: title, description, duration, uploader).
 * **Screen** each video against your target build with a fast Groq model. Videos with a relevance score of **≥ 0.65** are kept, with live progress displayed.
 * **Extract** a structured BOM with a stronger Groq model under strict **anti-hallucination rules** — only explicitly stated quantities/specs are recorded; critical missing specs become **logic-gap warnings**.
-* **Aggregate** a master manifest containing the component checklist, logic-gap directives, CAD/resource links, and regional price searches for **AliExpress / Shopee / Lazada**.
+* **Aggregate** a master manifest containing the component checklist, logic-gap directives, CAD/resource links, and regional price searches for **any online stores**.
 
 ---
 
