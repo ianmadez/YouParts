@@ -217,7 +217,7 @@ External resources discovered during extraction, including CAD files, build refe
 
 #### Regional Price Search
 
-Select a component and use **Search Regional Stores** to search supported marketplaces:
+Select a component and use **Search Regional Stores** to search any marketplace, right now the web-app comes with:
 
 * AliExpress
 * Shopee
