@@ -1,0 +1,1 @@
+Set-Content -Path "run.bat" -Value "python -m streamlit run app.py`npause"

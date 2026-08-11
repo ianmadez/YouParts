@@ -1,0 +1,8 @@
+pydantic
+pydantic-settings
+groq
+requests
+playwright
+streamlit
+yt-dlp
+pandas

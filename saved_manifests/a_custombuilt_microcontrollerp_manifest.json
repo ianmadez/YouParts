@@ -1,0 +1,1036 @@
+{
+  "build_focus": "A custom-built, microcontroller-powered force feedback (FFB) steering wheel setup featuring a high-torque motor base, a gated manual H-shifter, and an analog three-pedal assembly with a dedicated clutch.",
+  "master_bom": {
+    "parts_manifest": [
+      {
+        "part_name": "Arduino Leonardo Board",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "BTS7960 Motor Driver",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "775 Motor",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "60T-10mm Pulley",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "20T-5mm Pulley",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "200mm Close Loop Belt",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "600ppr Encoder",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "Flexible Coupling (10mm to 6mm)",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "10mm Aluminum Tube (12Inch)",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": "12Inch",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "10mm Pillow Bearing",
+        "category": "Mechanical",
+        "quantity": "2",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "L Motor Bracket",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "L Encoder Bracket",
+        "category": "Mechanical",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "12v Fan",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "Power Supply (12v 15A or 20A / 24v 5A)",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": "12v 15A or 20A / 24v 5A",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "1k Resistor",
+        "category": "Electronics",
+        "quantity": "2",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "source_video_url": "https://www.youtube.com/watch?v=gSKSSxwpuKU"
+      },
+      {
+        "part_name": "Force Feedback Steering Wheel",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig",
+        "source_video_url": "https://www.youtube.com/watch?v=F8xgsbUeE0c"
+      },
+      {
+        "part_name": "Arduino",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig",
+        "source_video_url": "https://www.youtube.com/watch?v=F8xgsbUeE0c"
+      },
+      {
+        "part_name": "PC",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig",
+        "source_video_url": "https://www.youtube.com/watch?v=F8xgsbUeE0c"
+      },
+      {
+        "part_name": "DIY Gaming Steering Wheel",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=UUWm1WW1bHI"
+      },
+      {
+        "part_name": "7-speed H-shifter",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=UUWm1WW1bHI"
+      },
+      {
+        "part_name": "Buttons",
+        "category": "Electronics",
+        "quantity": "3",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=UUWm1WW1bHI"
+      },
+      {
+        "part_name": "Game Controller",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Potentiometer",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Encoder KY-040",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Printer encoder",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Motor",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Power supply",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "source_video_url": "https://www.youtube.com/watch?v=7EY1GpAGPck"
+      },
+      {
+        "part_name": "Red LED",
+        "category": "Electronics",
+        "quantity": "2",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Yellow LED",
+        "category": "Electronics",
+        "quantity": "3",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Green LED",
+        "category": "Electronics",
+        "quantity": "3",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "PCB Dot board",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "16-way wire connector",
+        "category": "Electronics",
+        "quantity": "2",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "16-core Rainbow wire",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Push Buttons",
+        "category": "Electronics",
+        "quantity": "8",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "9-way wire connector",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "TM1638 LED Display Module",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Allen key bolt",
+        "category": "Hardware",
+        "quantity": "6",
+        "specs_and_dimensions": "2inch",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Carbon Fiber Sticker",
+        "category": "Materials",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "source_video_url": "https://www.youtube.com/watch?v=8mcyxGOfavc"
+      },
+      {
+        "part_name": "Arduino Leonardo R3 board",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "KY 040 Encoder",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "Male-to-female jumper wires",
+        "category": "Electronics",
+        "quantity": "Unspecified",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": "Quantity not specified",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "608 2RS Ball Bearing",
+        "category": "Mechanical",
+        "quantity": "2",
+        "specs_and_dimensions": "8x22x7mm",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "Nut, Bolt, and washer",
+        "category": "Fasteners",
+        "quantity": "Unspecified",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": "Quantity not specified",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "8mm thread bar",
+        "category": "Fasteners",
+        "quantity": "Unspecified",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": "Quantity not specified",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "Rubber flexible tube",
+        "category": "Miscellaneous",
+        "quantity": "Unspecified",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": "Quantity not specified",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=YuDey2uE7Nk"
+      },
+      {
+        "part_name": "Rs - 550 Motor",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "BTS 7962 motor driver",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "Motor Bracket",
+        "category": "Hardware",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "GT2 16T Pulley",
+        "category": "Hardware",
+        "quantity": "1",
+        "specs_and_dimensions": "3mm bore",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "GT2 60T Pulley",
+        "category": "Hardware",
+        "quantity": "1",
+        "specs_and_dimensions": "8mm bore",
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "GT2 300mm Closed-loop Belt",
+        "category": "Hardware",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "Jumper cables",
+        "category": "Electronics",
+        "quantity": "Unspecified",
+        "specs_and_dimensions": "male to male and male to female",
+        "alternative_parts": [],
+        "logic_gap_warning": "Quantity not specified",
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "source_video_url": "https://www.youtube.com/watch?v=07ToewIZJbE"
+      },
+      {
+        "part_name": "Arduino Board",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Force Feedback Not Working!",
+        "source_video_url": "https://www.youtube.com/watch?v=1tsP2rtZskM"
+      },
+      {
+        "part_name": "USB Cable",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Force Feedback Not Working!",
+        "source_video_url": "https://www.youtube.com/watch?v=1tsP2rtZskM"
+      },
+      {
+        "part_name": "LED",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Force Feedback Not Working!",
+        "source_video_url": "https://www.youtube.com/watch?v=1tsP2rtZskM"
+      },
+      {
+        "part_name": "DC Motor",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Force Feedback Not Working!",
+        "source_video_url": "https://www.youtube.com/watch?v=1tsP2rtZskM"
+      },
+      {
+        "part_name": "Motor Driver",
+        "category": "Electronics",
+        "quantity": "1",
+        "specs_and_dimensions": null,
+        "alternative_parts": [],
+        "logic_gap_warning": null,
+        "source_video_title": "Force Feedback Not Working!",
+        "source_video_url": "https://www.youtube.com/watch?v=1tsP2rtZskM"
+      }
+    ],
+    "external_resources": [
+      {
+        "resource_type": "YouTube Video",
+        "title": "Forza Horizon 5 Gameplay",
+        "url": "https://youtu.be/YPjeHWsJ9ZQ",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "Euro Truck Simulator 2 Gameplay",
+        "url": "https://youtu.be/hmE4mCgDOVo",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "Step-by-Step Guide: Connecting a Force Feedback Steering Wheel to Your PC",
+        "url": "https://youtu.be/F8xgsbUeE0c",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "Fixed and clarified all issues in RFR wheel configuration (0.21)",
+        "url": "https://youtu.be/U0nuY5OHgUA",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "Forza Horizon 5 Connection Guide",
+        "url": "https://youtu.be/ohSRitQex64",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "GTA 5 Connection Guide",
+        "url": "https://youtu.be/WEDGqliYHwA",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "Google Drive Folder",
+        "title": "Diagram Link",
+        "url": "https://drive.google.com/drive/folders/1WFMp9PGNI_E6T8wmTyD9F4-VbRlCCP8P",
+        "source_video_title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino"
+      },
+      {
+        "resource_type": "Google Drive File",
+        "title": "Software Link",
+        "url": "https://drive.google.com/file/d/1Db0kc73wxg8sWbJ1C2vhABGsXEGtj9k5/view?usp=sharing",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "How to make a Force FeedBack Steering Wheel with Arduino",
+        "url": "https://youtu.be/gSKSSxwpuKU?si=AqkB15csDj7LVzLj",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "PART 3 : Fix all issues in the RFR wheel configuration",
+        "url": "https://youtu.be/U0nuY5OHgUA?si=i_fD5nJ6hJjYcuh-",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "How to play GTA 5 on this wheel with FFB",
+        "url": "https://youtu.be/WEDGqliYHwA?si=6WWj38DxwjNLvFO0",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "How to play Forza Horizon 5 on this wheel",
+        "url": "https://youtu.be/ohSRitQex64?si=rm2Q4p4WOzAt2pCP",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "DIY Sim Racing Dash Display",
+        "url": "https://youtu.be/BxpwM4jKSDw?si=Z6CWls3HxVkrbXQm",
+        "source_video_title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig"
+      },
+      {
+        "resource_type": "Google Drive File",
+        "title": "EMC Utility",
+        "url": "https://drive.google.com/file/d/1tu0aDiW2VCKdSQ5ogbMmdfhljzG7bWtx/view?usp=sharing",
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "Google Drive Folder",
+        "title": "Buttons Diagram",
+        "url": "https://drive.google.com/drive/folders/1mOYUsYBuNYONqEzS9h-bM3neYA0BAqmM?usp=drive_link",
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "YouTube Playlist",
+        "title": "Watch Out FFB Gaming Steering Wheel",
+        "url": "https://youtube.com/playlist?list=PLykYjjUxCjKw9tHjgbj3Yqcg2fP1wB40R&si=_R0J8KpuDblpRPRs",
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "Facebook Page",
+        "title": "EMC Development",
+        "url": "https://web.facebook.com/EMCDeveloper/?_rdc=1&_rdr",
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "YouTube Channel",
+        "title": "EMC Youtube Channel",
+        "url": "https://www.youtube.com/@ebolzzable",
+        "source_video_title": "Let's Try EMC On DIY Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "YouTube Channel",
+        "title": "DIY sim racing content",
+        "url": "https://www.youtube.com/channel/UCdRwdLib3htC0YxWtEoaK_A",
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)"
+      },
+      {
+        "resource_type": "Email",
+        "title": "Contact",
+        "url": "tashmikanimesh7@gmail.com",
+        "source_video_title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "PADDLE SHIFTER Tutorial",
+        "url": "https://youtu.be/Gz3SLgLr9ig?si=Ux26mnSo-uiKowvg",
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY"
+      },
+      {
+        "resource_type": "Google Drive Folder",
+        "title": "Steering Wheel PDF",
+        "url": "https://drive.google.com/drive/folders/1cAL7BtzuJ9eGPR0jZSV-rIScDfVIugl5?usp=sharing",
+        "source_video_title": "How To Make Simple F1 Gaming Steering Wheel | DIY"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "How to connect EMC Lite software",
+        "url": "https://youtu.be/UUWm1WW1bHI?si=gUQ6_PAl50FalCL5",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "DIY Low Budget Gaming Steering Wheel Part 2",
+        "url": "https://youtu.be/kyhu5ciYFBI?si=__u7jqSxh18t_445",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "Google Drive Folder",
+        "title": "Print file",
+        "url": "https://drive.google.com/drive/folders/19A99_yhcyeb9JyRjoYO2HBDRU6GHBXZT?usp=sharing",
+        "source_video_title": "DIY Low Budget Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "AliExpress Product",
+        "title": "GT2 16T Pulley 3mm bore",
+        "url": "https://www.aliexpress.com/item/1005005849558881.html?spm=a2g0o.order_list.order_list_main.11.749b1802NquM5S",
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "AliExpress Product",
+        "title": "Motor Bracket",
+        "url": "https://www.aliexpress.com/item/1005003617393684.html?spm=a2g0o.order_list.order_list_main.17.749b1802NquM5S",
+        "source_video_title": "DIY Low Budget Force FeedBack Gaming Steering Wheel"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "Gaming Steering Wheel Build",
+        "url": "https://youtu.be/YuDey2uE7Nk",
+        "source_video_title": "DIY FFB Wheel Wiring Tutorial Step by Step Explained!"
+      },
+      {
+        "resource_type": "Google Drive File",
+        "title": "EMC Link",
+        "url": "https://drive.google.com/file/d/1tu0aDiW2VCKdSQ5ogbMmdfhljzG7bWtx/view?usp=sharing",
+        "source_video_title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial"
+      },
+      {
+        "resource_type": "Google Drive Folder",
+        "title": "PDF Diagram Link",
+        "url": "https://drive.google.com/drive/folders/1mOYUsYBuNYONqEzS9h-bM3neYA0BAqmM?usp=drive_link",
+        "source_video_title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "DIY Low Budget Gaming Steering Wheel",
+        "url": "https://youtu.be/YuDey2uE7Nk",
+        "source_video_title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "DIY Sequential Shifter (Full Tutorial)",
+        "url": "https://youtu.be/Fyn3c_7i6yA",
+        "source_video_title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial"
+      },
+      {
+        "resource_type": "YouTube Video",
+        "title": "DIY PVC Magnatic Paddle Shifters",
+        "url": "https://youtu.be/Gz3SLgLr9ig",
+        "source_video_title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial"
+      }
+    ],
+    "logic_gaps": []
+  },
+  "analyzed_videos": [
+    {
+      "video_id": "gSKSSxwpuKU",
+      "title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+      "url": "https://www.youtube.com/watch?v=gSKSSxwpuKU",
+      "description": "*How To Make Force FeedBack Gaming Steering Wheel | Arduino - Build Your Own Racing Experience!*\n\n\ud83c\udfce\ufe0f Ready to take your sim racing to the next level? Learn how to create your own DIY force feedback gaming steering wheel with this step-by-step tutorial! \ud83d\udee0\ufe0f \n\n    In this video, we guide you through the process of creating a custom force feedback steering wheel that will immerse you in the thrilling world of virtual racing. Whether you're a seasoned sim racer or a beginner looking to enhance your setup, this project is perfect for you.\ud83d\udc4d \n\n\ud83d\udd27 What You'll Need: \n\n-Arduino Leonardo Board (This only supports the Leonardo board) \n-BTS7960 Motor Driver \n-775 Motor \n-60T-10mm + 20T-5mm pulley + 200mm close loop belt  \n-600ppr Encoder  \n-Flexible coupling (10mm to 6mm)  \n-10mm Aluminum tube (12Inch)  \n-10mm pillow bearing x2  \n-L motor bracket  \n-L encoder bracket  \n-12v fan  \n-Power Supply  12v 15A or 20A / 24v 5A\n-1k resistor x2 \n\n\ud83c\udfae *Testing and Gameplay*: You can see how this steering wheel works in some popular games here \n\n    -Forza Horizon 5 - https://youtu.be/YPjeHWsJ9ZQ?si=Y-NlS9Ifr7cJNLPu \n\n    -Euro Truck Simulator 2 - https://youtu.be/hmE4mCgDOVo?si=svjCTul2gvQFjJ-X \n\n\ud83d\ude80 *Why Build Your Own?* \n\n    -Cost-effective alternative to commercial force feedback wheels. \n\n    -Customizable to suit your preferences and racing style. \n\n    -Gain valuable knowledge about force feedback technology and electronics. \n\n\ud83d\udee0\ufe0f *This is how to connect to the PC:*\n\n   Step-by-Step Guide: Connecting a Force Feedback Steering Wheel to Your PC -https://youtu.be/F8xgsbUeE0c?si=CfxVcvSyy_OEpoCn \n\n\ud83d\udd27 *Troubleshooting Tips:* When connecting this with a PC, some problems have to be faced. You can learn how to solve those questions from this video. \n\n   Fixed and clarified all issues in RFR wheel configuration (0.21) - https://youtu.be/U0nuY5OHgUA?si=blLdaaSu5cZIpXez \n\n \ud83d\ude97 *Here is how to connect some games:* \n\n    Forza Horizon 5 - https://youtu.be/ohSRitQex64?si=UF5_szmp-QwsvVFC \n\n    GTA 5 - https://youtu.be/WEDGqliYHwA?si=Sba7HZ5Bh5iXC78V \n\n\ud83d\udd17 *Links:* \n\n    *Diagram Link* - https://drive.google.com/drive/folders/1WFMp9PGNI_E6T8wmTyD9F4-VbRlCCP8P?usp=sharing  \n\n\ud83d\udc4d If you found this video helpful, don't forget to give it a thumbs up, subscribe for more DIY sim racing content, and hit the notification bell to stay updated on our latest projects. Comment below what you think about this video. \n\n    Get ready to revolutionize your sim racing setup with this DIY Force Feedback Gaming Steering Wheel project! \ud83c\udfc1\ud83d\udd79\ufe0f \n\n*Thanks for watching* \n\nTimes : \nintro (0:00)\nRequired parts (0:12)\n*important (Thread bar details) (0:21)\n*important (Pulley details) (0:32)\nRequired parts (0:47)\nAssembling (1:17)\nDiagram (5:20)\nConnectivity  (5:29)\n*important (about Handbrake) (6:15)\n*important (Gamecontroller) (6:48)\nEncoder Diagram (7:00)\nAssembling all (7:11)\nAbout Aluminium tube (10:20)\nCooling problem (11:25)\nEnd (12:37)\n\n#DIYSteeringWheel #ForceFeedbackWheel #GamingSetup#RacingWheelDIY #DIYProjects #GamingEnthusiast #RacingSimulation",
+      "duration": 774,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "gSKSSxwpuKU",
+        "title": "How To Make Force FeedBack Gaming Steering Wheel | Arduino",
+        "relevance_score": 0.95,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino",
+          "BTS7960 Motor Driver",
+          "775 Motor",
+          "GT2 Belt"
+        ],
+        "reasoning": "Covers FFB steering wheel base and electronics."
+      }
+    },
+    {
+      "video_id": "F8xgsbUeE0c",
+      "title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig",
+      "url": "https://www.youtube.com/watch?v=F8xgsbUeE0c",
+      "description": "Step-by-Step Guide: Connecting a Force Feedback Steering Wheel to Your PC\n\nLIKE & SUBSCRIBE GUYS!\n\n*Software Link* - https://drive.google.com/file/d/1Db0kc73wxg8sWbJ1C2vhABGsXEGtj9k5/view?usp=sharing\n\n\ud83d\udc49*How to make a Force FeedBack Steering Wheel with Arduino* - https://youtu.be/gSKSSxwpuKU?si=AqkB15csDj7LVzLj\n\n\ud83d\udc49 *PART 3 : Fix all issues in the RFR wheel configuration* - https://youtu.be/U0nuY5OHgUA?si=i_fD5nJ6hJjYcuh-\n\n\ud83d\udc49 *How to play GTA 5 on this wheel with FFB* - https://youtu.be/WEDGqliYHwA?si=6WWj38DxwjNLvFO0\n\n\ud83d\udc49 *How to play Forza Horizon 5 on this wheel* - https://youtu.be/ohSRitQex64?si=rm2Q4p4WOzAt2pCP \n\n\ud83d\udc49 *DIY Sim Racing Dash Display* - https://youtu.be/BxpwM4jKSDw?si=Z6CWls3HxVkrbXQm\n\nTimes : \nintro (0:00)\nArduino IDE Installing (0:10)\nUploading Arduino Driver (0:36)\nInstalling Wheelconfig (1:40)\nSetup Wheelconfig (1:54)\nExplaining Wheelconfig options (2:54)\nForce feedback direction fix (3:34)\nExplaining Wheelconfig options (4:12)\nWheelCheck Test (5:14)\nPedal calibration (6:07)\nAfter calibration wheel error fix (9:07)\nReady to play (9:29)\nAfter you can play (9:40)\nEnd (10:06)\n\n \n\u00a9 I do not own all the material I'm posting on my channel. If you are a copyright owner and want your work to be removed PLEASE CONTACT US FIRST through (email- tashmikanimesh7@gmail.com) I'll delete this upload immediately.\n________________________________________________________________________________________________________________________________________________\n\n #DIY #gaming #simracing",
+      "duration": 626,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "F8xgsbUeE0c",
+        "title": "Connecting a FFB Steering Wheel to Your PC | WheelConfig",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino"
+        ],
+        "reasoning": "Covers FFB steering wheel base and setup, but does not mention clutch pedal or BeamNG.drive compatibility."
+      }
+    },
+    {
+      "video_id": "UUWm1WW1bHI",
+      "title": "Let's Try EMC On DIY Gaming Steering Wheel",
+      "url": "https://www.youtube.com/watch?v=UUWm1WW1bHI",
+      "description": "In this video, I will show you how to connect your DIY Gaming steering wheel to the EMC Utility lite version.\n\nChapters : \nIntroduction EMC (0:00)\nChannel Announcement (0:36)\nInstalling EMC Utilities  (0:53)\nConnecting the Wheel (1:46)\nWheel Calibration (2:37)\nPedal Calibration (3:19)\nFFB Settings (3:44)\nGameplay Test (4:24)\n*Important* (5:10)\nEnd (6:39)\n\n*IMPORTANT*  (Updated on 2025 September)\n\nHow to add buttons for this -\nI have mentioned in this video that you cannot use buttons in the lite version. But recently I found  11 working buttons. I uploaded a PDF diagram link you can check it. So now you can use a 7-speed H-shifter and 3 more buttons.*\n \nEMC Link - https://drive.google.com/file/d/1tu0aDiW2VCKdSQ5ogbMmdfhljzG7bWtx/view?usp=sharing\n\nButtons Diagram Link - https://drive.google.com/drive/folders/1mOYUsYBuNYONqEzS9h-bM3neYA0BAqmM?usp=drive_link\n\nWatch Out FFB Gaming Steering Wheel - https://youtube.com/playlist?list=PLykYjjUxCjKw9tHjgbj3Yqcg2fP1wB40R&si=_R0J8KpuDblpRPRs\n\n*EMC Development FaceBook Page* - https://web.facebook.com/EMCDeveloper/?_rdc=1&_rdr\n*EMC Youtube Channle* - https://www.youtube.com/@ebolzzable\n\n\ud83d\udc4d Don't forget to like, subscribe, and hit the notification bell to stay updated on our latest DIY gaming projects and tutorials.\n\n#steeringwheel #gaming #zudumalli",
+      "duration": 408,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "UUWm1WW1bHI",
+        "title": "Let's Try EMC On DIY Gaming Steering Wheel",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": true,
+        "key_components_mentioned": [
+          "EMC Utility",
+          "FFB Settings"
+        ],
+        "reasoning": "Covers FFB steering wheel base and calibration, but does not mention clutch pedal assembly."
+      }
+    },
+    {
+      "video_id": "7EY1GpAGPck",
+      "title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+      "url": "https://www.youtube.com/watch?v=7EY1GpAGPck",
+      "description": "Title: Tips You Need to Know! | DIY Gaming Steering Wheel (Important)\n\nWelcome to our DIY gaming steering wheel adventure! if you are making a DIY gaming steering wheel, You should know these important points.\n\n     So far, two steeringwheels have been created on my channel. One is made with a game controller and the other with an Arduino. \n\n\ud83c\udfae In this video, I'll explore \n\nIntro (0:00)\nGame Controller issue (0:20)\nwhat is dead-zone (0:25)\nwhat does FFB mean (1:04)\nwhat is better for the steering wheel (1:44)\nhow to make less money (1:54)\nfirst method (potentiometer) (2:02)\nsecond method ( Encoder KY-040 ) (3:30)\nWhat is the mean PPR value (4:15)\nThird method ( Printer encoder ) (6:23)\nWhat is Torque (6:57)\nwhy Torque is important for the wheel? (8:08)\nHow to Choose a Motor. (8:19)\nHow to increase torque. (8:31)\nHow to choose Power supply. (9:02)\nabout Wheelconfig software (9:37)\nend (10:05)\n\n\ud83d\udc4d If you found this video helpful, don't forget to give it a thumbs up, subscribe for more DIY sim racing content, and hit the notification bell to stay updated on our latest projects. Comment below what you think about this video. \n\nGet ready to revolutionize your sim racing setup with this DIY Force Feedback Gaming Steering Wheel project! \ud83c\udfc1\ud83d\udd79\ufe0f \n\n*Thanks for watching* \n\nJoin this channel to get access to perks:\nhttps://www.youtube.com/channel/UCdRwdLib3htC0YxWtEoaK_A/join\n\n\ncontact me (Email- tashmikanimesh7@gmail.com)\n________________________________________________________________________________________________________________________________________________\n\n#DIYSteeringWheel #ForceFeedbackWheel #GamingSetup#RacingWheelDIY #DIYProjects #GamingEnthusiast #RacingSimulation",
+      "duration": 630,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "7EY1GpAGPck",
+        "title": "Tips You Need to Know! | DIY Gaming Steering Wheel (Important)",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": true,
+        "key_components_mentioned": [
+          "Arduino",
+          "Encoder KY-040",
+          "Motor",
+          "Power supply"
+        ],
+        "reasoning": "Covers FFB steering wheel base, including motor and power supply selection, and mentions Arduino."
+      }
+    },
+    {
+      "video_id": "8mcyxGOfavc",
+      "title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+      "url": "https://www.youtube.com/watch?v=8mcyxGOfavc",
+      "description": "In this video,  I\u2019ll show you step-by-step how to build F1 style gaming steering wheel at home. Many guys use equipment like 3d print to make this. But I will tell you how to make it from home materials.\n\n\ud83d\udd28Materials Needed\n\nFor RPM LED:\n\nRed LED - 2\nYellow LED - 3\nGreen LED - 3\nPCB Dot board\n16-way wire connector - 2\n16-core Rainbow wire\n\nFor Steering Wheel:\n\nPush Buttons -8\n9-way wire connector (for Push Buttons)\nTM1638 LED Display Module\nAllen key bolt 2inch - 6\nArduino (supported devices are mentioned in the Simhub software)\nCarbon Fiber Sticker\n\n\ud83d\udc4d PADDLE SHIFTER Tutorial - https://youtu.be/Gz3SLgLr9ig?si=Ux26mnSo-uiKowvg\n\n\ud83d\udcc4 Steering Wheel PDF Link - https://drive.google.com/drive/folders/1cAL7BtzuJ9eGPR0jZSV-rIScDfVIugl5?usp=sharing\n\n\ud83d\udce2 Don't Forget:\n\n    Hit the like button if you enjoyed the video\n    Subscribe for more DIY projects and sim racing tips\n    Drop a comment if you have any questions or suggestions\n\n\ud83d\udd14 Stay Tuned: Thanks for watching, and let's get building!\n\nTimes:\n\nintro (0:00)\nWheel Making(0:10)\nMaking the RPM LED (0:56)\nApply the sticker on wheel (3:00)\nInstalling push buttons (3:26)\nInstalling TM1638 Display Module (5:21)\nAssembling All (6:09)\nSimHub Software Setup (7:24)\nTesting on F1 2020 (8:56)\nEnd (9:18)\n\n#DIY #SimRacing #F1SteeringWheel",
+      "duration": 573,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "8mcyxGOfavc",
+        "title": "How To Make Simple F1 Gaming Steering Wheel | DIY",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino",
+          "Allen key bolt",
+          "TM1638 LED Display Module"
+        ],
+        "reasoning": "Covers FFB steering wheel base and RPM LED setup, but lacks clutch pedal assembly and BeamNG.drive integration."
+      }
+    },
+    {
+      "video_id": "YuDey2uE7Nk",
+      "title": "DIY Low Budget Gaming Steering Wheel",
+      "url": "https://www.youtube.com/watch?v=YuDey2uE7Nk",
+      "description": "In this video, I'll show you How to make low budget gaming steering wheel.\nThis is not 100% accurate but you can play with a little disadvantage.\n\n*Some of you have watched my gamepad steering wheel video, which is also a budget steering wheel. However, the steering wheel has a death zone, so this problem has no fix. So I decided to make an Arduino with no death zone and also make it as low-budget as possible. I hope this setup will help someone. Both of the videos I uploaded earlier for pedals are suitable for this, as they both belong to the low-budget category. I'll find out if this can be made even cheaper.*\n\n\ud83d\udd28*Materials Needed*\n\nArduino leonardo R3 board\nKY 040 Encoder\nMale-to-female jumper wires\n2x 608 2RS Ball Bearing (8x22x7mm)\nNut, Bolt, and washer\n8mm thread bar\nRubber flexible tube\n\n*How to Connect to the PC* - ( I'm using EMC Lite software. I previously posted a video on how to connect this software. If you watch the video from 0.53 to 3.44, you can see how to connect this.)\nVideo Link - https://youtu.be/UUWm1WW1bHI?si=gUQ6_PAl50FalCL5\n\n*DIY Low Budget Gaming Steering Wheel Part 2* (Solution for steering lag) - https://youtu.be/kyhu5ciYFBI?si=__u7jqSxh18t_445\n\n*Print file* - https://drive.google.com/drive/folders/19A99_yhcyeb9JyRjoYO2HBDRU6GHBXZT?usp=sharing",
+      "duration": 1065,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "YuDey2uE7Nk",
+        "title": "DIY Low Budget Gaming Steering Wheel",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino",
+          "KY 040 Encoder"
+        ],
+        "reasoning": "Covers FFB steering wheel base with Arduino, but lacks clutch pedal assembly and BeamNG.drive integration."
+      }
+    },
+    {
+      "video_id": "07ToewIZJbE",
+      "title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+      "url": "https://www.youtube.com/watch?v=07ToewIZJbE",
+      "description": "In this video, I'll show you how to make low budget Force Feedback Gaming Steering Wheel.\n\nDIY Low-Budget Gaming Steering Wheel Part 1 - https://youtu.be/YuDey2uE7Nk?si=jCr52A7ilCfFI3Qp\n\n*Watch first* - https://youtu.be/7EY1GpAGPck?si=VivEpnyQdT7d3_3G\n\n\ud83d\udd28*Materials Needed*\n\nRs - 550 Motor\nBTS 7962 motor driver\nMotor Bracket\nGT2 16T Pulley 3mm bore \nGT2 60T Pulley 8mm bore\nGT2 300mm Closed-loop Belt\nJumper cables (male to male and male to female)\n\n*Part I bought online*\n\nGT2 16T Pulley 3mm bore - https://www.aliexpress.com/item/1005005849558881.html?spm=a2g0o.order_list.order_list_main.11.749b1802NquM5S\n\nMotor Bracket - https://www.aliexpress.com/item/1005003617393684.html?spm=a2g0o.order_list.order_list_main.17.749b1802NquM5S\n\n*You can often find motor + bracket kits together for a slightly cheaper price. consider buying pulley + belt kits to save a few money.*\n\nTimeSpan -\n\nIntro (0:00)\n*Important* (0:07)\nAbout Motor (0:38)\nAbout Pulley & Belt (1:38)\nOther Parts (2:12)\nMotor Cooling Solution (2:30)\nOther Parts (2:54)\nWheel base changes (3:12)\nWiring (3:38)\nAssembling (3:41)\nMotor shaft problem! & Fix (5:56)\nAssembling (6:37)\nBelt tensioner (7:19)\nMotor & Driver Assembling (9:05)\nSteering Wheel New Hub (10:12)\nAssembling (10:51)\nEMC FFB Settings (12:11)\nSteering Wheel Direction Fix(12:23)\nFFB Direction Fix (12:52)\nFFB Settings (13:26)\nFFB Test (13:37)\nETS 2 FFB Test (14:22)\nTemperature of Motor & Driver (15:34)\nHow to Make Even More Budget (18:20)\nFinal Thoughts (19:23)\nEnd (19:52)\n\n#diy",
+      "duration": 1201,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "07ToewIZJbE",
+        "title": "DIY Low Budget Force FeedBack Gaming Steering Wheel",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "GT2 Belt",
+          "BTS 7962 motor driver"
+        ],
+        "reasoning": "Covers FFB steering wheel base and motor driver."
+      }
+    },
+    {
+      "video_id": "ibqPD1rqjB0",
+      "title": "DIY FFB Wheel Wiring Tutorial Step by Step Explained!",
+      "url": "https://www.youtube.com/watch?v=ibqPD1rqjB0",
+      "description": "In this video, I will explain diy force feedback gaming steering wheel wiring and all the connections step by step. So this video is very helpful for beginners.\n\nWatch how to make this gaming steering wheel - https://youtu.be/YuDey2uE7Nk?si=JMxqijOk4TJLd6bk",
+      "duration": 430,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "ibqPD1rqjB0",
+        "title": "DIY FFB Wheel Wiring Tutorial Step by Step Explained!",
+        "relevance_score": 0.95,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": true,
+        "key_components_mentioned": [
+          "FFB Wheel"
+        ],
+        "reasoning": "Covers FFB steering wheel wiring, which is crucial for the target build."
+      }
+    },
+    {
+      "video_id": "lbWGCMjtZgA",
+      "title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial",
+      "url": "https://www.youtube.com/watch?v=lbWGCMjtZgA",
+      "description": "I've built a low-budget FFB gaming steering wheel, so in this video, I'll show you step-by-step how to connect it to your PC.\n\nEMC Link-  https://drive.google.com/file/d/1tu0aDiW2VCKdSQ5ogbMmdfhljzG7bWtx/view?usp=sharing\n\n*I have mentioned in this video that you cannot use the H-shifter or buttons in the Lite version. But recently I found  11 working buttons. I uploaded a PDF diagram link, you can check it. So now you can use a 7-speed H-shifter and 3 more buttons.*\n \nPDF Link - https://drive.google.com/drive/folders/1mOYUsYBuNYONqEzS9h-bM3neYA0BAqmM?usp=drive_link\n\n\nDIY Low Budget Gaming Steering Wheel - https://youtu.be/YuDey2uE7Nk?si=tB52mVqLmyLMaytg\n\nDIY Sequential Shifter (Full Tutorial) - https://youtu.be/Fyn3c_7i6yA?si=6a4lsjtVbXW5gSvM\n\nDIY PVC Magnatic Paddle Shifters - https://youtu.be/Gz3SLgLr9ig?si=Ndk6KxoGd0ZikLFQ\n\n\n\ud83d\udc4d Don't forget to like, subscribe, and hit the notification bell to stay updated on our latest DIY gaming projects and tutorials.",
+      "duration": 284,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "lbWGCMjtZgA",
+        "title": "How To Connect Your Budget FFB Gaming Steering Wheel to PC | EMC Lite Tutorial",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "EMC Lite"
+        ],
+        "reasoning": "Covers FFB steering wheel connection and setup."
+      }
+    },
+    {
+      "video_id": "1tsP2rtZskM",
+      "title": "Force Feedback Not Working!",
+      "url": "https://www.youtube.com/watch?v=1tsP2rtZskM",
+      "description": "In this video, I'll show you how to test each component of a DIY Gaming Steering Wheel and also the solutions I found for the most common problems.\n\nTimes : \nintro (0:00)\nUSB Cable Problem (0:34)\nHow to Arduino Board Reset (0:44)\nRe-upload Firmware (1:26)\nEncoder Signal Issue (1:51)\nTesting Power Lines with an LED (2:27)\nWheel Direction Fix (3:33)\nFFB Signal Test (Arduino LED Test) (3:53)\nChecking DC Motor (4:27)\nUnderstanding Motor Driver Pins (5:13)\nTesting Power Lines on Motor Driver (5:50)\nFFB Fixing (6:10)\nManual Motor Driver Testing Method (6:50)\nWhy FFB Works Only on One Side (7:57)\nWheel Spinning Continuously (8:24)\nFinal Summary (8:39)\nEnd(9:23)\n\n\nLike & Subscribe!",
+      "duration": 579,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "1tsP2rtZskM",
+        "title": "Force Feedback Not Working!",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino",
+          "Encoder Signal",
+          "Motor Driver",
+          "DC Motor"
+        ],
+        "reasoning": "Covers FFB steering wheel base troubleshooting and testing."
+      }
+    },
+    {
+      "video_id": "slxCEkKGT6o",
+      "title": "Is Your Arduino Sending FFB Signals",
+      "url": "https://www.youtube.com/watch?v=slxCEkKGT6o",
+      "description": "In this video, I'll show you how to check the Arduino FFB signal.\n\nLike & Subscribe!",
+      "duration": 34,
+      "uploader": "ZUDU MaLLi",
+      "transcript_summary": "",
+      "relevance_analysis": {
+        "video_id": "slxCEkKGT6o",
+        "title": "Is Your Arduino Sending FFB Signals",
+        "relevance_score": 0.85,
+        "is_relevant": true,
+        "has_clutch_content": false,
+        "has_ffb_content": true,
+        "beamng_compatible": false,
+        "key_components_mentioned": [
+          "Arduino"
+        ],
+        "reasoning": "Covers FFB signal checking, relevant to FFB steering wheel build."
+      }
+    }
+  ]
+}
